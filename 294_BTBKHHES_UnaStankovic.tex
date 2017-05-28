@@ -1,0 +1,59 @@
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper]{article}
+
+\usepackage{color}
+\usepackage{url}
+\usepackage[T2A]{fontenc} % enable Cyrillic fonts
+\usepackage[utf8]{inputenc} % make weird characters work
+\usepackage{graphicx}
+
+\usepackage[english,serbian]{babel}
+%\usepackage[english,serbianc]{babel} %ukljuciti babel sa ovim opcijama, umesto gornjim, ukoliko se koristi cirilica
+\setcounter{tocdepth}{1}
+\usepackage[unicode]{hyperref}
+\hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
+\usepackage{amsmath}
+%\newtheorem{primer}{Пример}[section] %ćirilični primer
+\newtheorem{primer}{Primer}[section]
+\newtheorem{definicija}[primer]{Definicija}
+
+\graphicspath{{./slike/}}
+
+\begin{document}
+
+\title{Bezbedno traženje biomarkera korišćenjem hibridne homomorfne enkripcione šeme \\ \small{~\\Seminarski rad u okviru kursa\\Kriptografija\\ Matematički fakultet}}
+
+\author{
+	Stanković Una\\
+	una\_stankovic@yahoo.com}
+\date{16.~maj 2017.}
+\maketitle
+
+\abstract{Sa sve bržim razvojem tehnologija za sekvenciranje genoma, raste i potreba da se očuva bezbednost podataka, posebno jer se oni, sve češće, čuvaju u oblaku i odatle koriste za istraživanje. U radu će biti predstavljen protokol za rešavanje problema bezbednog uparivanja ..... enkriptovanih podataka. Biće predložen efikasan način da se bezbedno pretraži pozicija koja odgovara podacima iz upita i izvuku neke informacije sa te pozicije. Nakon dekriptovanja, postoji samo mala kolicina poređenja sa informacijama iz upita koja se vrši nad običnim tekstom. Ovaj metod će biti primenjen da se nađe skup biomarkera u enkriptovanim genomima.}
+
+\tableofcontents
+
+\newpage
+
+
+\section{Uvod}
+\label{sec:uvod}
+Brz razvoj tehnologije sekvenciranja genoma dozvoljava nam da pristupimo velikim skupovima genoma i što bi moglo da nam omogući bitne pomake u medicinskim istraživanjima. Informacije koje dobijamo iz skupova genoma se najčešće koriste u medicini, biomedicinskim istraživanjima, kao i uslugama koje se direktno pružaju korisnicima, zbog čega je veoma važno da se ovim podacima rukuje sa oprezom i da se oni obezbede od neovlašćenog pristupa i korišćenja.\\\\
+Predloženo je da se privatnost podataka očuva korišćenjem homomorfne enkripcije (engl. Homomorphic Encryption - HE), koja omogućava da izračunavanja budu prenesena u obliku šifrovanog teksta.
+Homomorfna enkripcija je vid enkripcije koji nam dozvoljava da izvodimo operacije nad enkriptovanim tekstom i dobijemo enkriptovani rezultat, koji kada dekriptujemo, je isti kao rezultat koji bismo dobili da smo operaciju primenili nad neenkriptovanim tekstom.\\\\ Jasuda i drugi autori (engl. Yasuda et al.) su dali praktično rešenje za pronalazak lokacije uzorka u tekstu izračunavanjem više Hamingovih rastojanja nad enkriptovanim podacima. Loter i drugi (engl. Lauter et al.) su dali rešenje kako da se bezbedno izvrše osnovni genomski algoritmi korišćeni u mnogim sprovedenim studijama.\\\\
+Homomorfna enkripcija može biti primenjena za očuvanje privatnosti sekvence koju analiziramo, ali se pokazuje kao veoma nepraktična za analizu informacija kod kompletnog ljudskog genoma.
+Glavna ideja, koja će biti korišćena za bezbedno pretraživanje skupa biomarkera korišćenjem Ring-GSW homomorfne enkripcione šeme, je da se enkodira baza genoma kao jedan element polinomijalnog prstena. Operacija pretrage u bazi se radi vršenjem jednog množenja sa genomom upita. Potom vršimo proceduru izvlačenja kako bismo dobili DNK sekvencu i nakon dekripcije je poredimo sa DNK upita u običnom tekstu. 
+
+
+\section{Zaključak}
+\label{sec:zakljucak}
+
+
+\addcontentsline{toc}{section}{Literatura}
+\appendix
+\bibliography{seminarski} 
+\bibliographystyle{plain}
+
+
+\end{document}
