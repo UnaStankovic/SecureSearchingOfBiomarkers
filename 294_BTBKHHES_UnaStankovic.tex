@@ -50,7 +50,13 @@ Zadatak je da se na bezbedan način izračuna verovatnoća genetskih bolesti kro
 Pretpostavimo da klijent ima VCF fajl (engl. Variation Call Format), koji sadrži informacije o genotipu, kao što su broj hromozoma i pozicija u genomu. Klijent enkriptuje informacije koristeći homomorfnu enkripciju i server računa tačno poklapanje nad enkriptovanim podacima. Ishod je prisustvo/odsustvo specifičnih biomarkera. Na kraju, klijent dekriptuje rezultat uz pomoć tajnog ključa homomorfne enkripcije.
 
 \section{Pretraga i izvlačenje podataka iz baze uz očuvanje privatnosti}
-
+Posmatrajmo bazu koja je skup od n torki (engl. tuples). Svaka torka se sastoji iz para ($d_i$,$\alpha_i$) za i = 1,...,n, gde je $d_i$ oznaka podatka iz domena \{0,1,...,$\tau-1$\}, a $\alpha_i$ odgovarajuća vrednost atributa u prostoru običnog teksta $Z_t \backslash \{0\}$. Primetiti da sve oznake podataka treba da se međusobno razlikuju. Na primer, u slučaju baze podataka koja sadrži informacije o nekoj osobi, $\alpha_i$ može da bude broj godina korisnika čiji je identifikacioni broj $d_i$.\\\\
+Kada imamo datu oznaku upita d iz domena oznaka i vrednost upita $\alpha$ iz prostora običnog teksta, problem spajanja se svodi na određivanje postojanja indeksa \textit{i}, takvog da ($d$,$\alpha$) = ($d_i$,$\alpha_i$). Posmatrajmo sada pojednostavljen upit za pretragu: odaberi $\alpha_i$ ako postoji indeks \textit{i} takav da je $d_i$ = $d$, inače nula.\\\\
+Glavni cilj nam je da server ne nauči nista iz enkriptovanog upita, kao ni da korisnik ne dobije bilo kakve informacije osim onih koje predstavljaju krajnji rezultat.
+\subsubsection{Metod za bezbednu pretragu i izvlačenje podataka}
+Osnovna ideja je korišćenje narednog metoda za enkodiranje baze koji je pogodan za efikasno izračunavanje jednakosti i izvlačenje:
+	$$DB(X) = \sum_{i} \alpha_i X^{d_i} \in \zeta[X]$$ 
+Korisnik enkriptuje polinom sa javnim ključem i šifrovani tekst čuva na serveru. U fazi ispitivanja upita, sa nazivom upita \textit{d}, korisnik enkriptuje monom $X^{-d}$ sa simetričnom enkripcijom, a šifrovani tekst šalje ka serveru.
 \section{Zaključak}
 \label{sec:zakljucak}
 
