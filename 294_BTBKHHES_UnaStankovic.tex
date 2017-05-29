@@ -45,6 +45,11 @@ Homomorfna enkripcija je vid enkripcije koji nam dozvoljava da izvodimo operacij
 Homomorfna enkripcija može biti primenjena za očuvanje privatnosti sekvence koju analiziramo, ali se pokazuje kao veoma nepraktična za analizu informacija kod kompletnog ljudskog genoma.
 Glavna ideja, koja će biti korišćena za bezbedno pretraživanje skupa biomarkera korišćenjem Ring-GSW homomorfne enkripcione šeme, je da se enkodira baza genoma kao jedan element polinomijalnog prstena. Operacija pretrage u bazi se radi vršenjem jednog množenja sa genomom upita. Potom vršimo proceduru izvlačenja kako bismo dobili DNK sekvencu i nakon dekripcije je poredimo sa DNK upita u običnom tekstu. 
 
+\section{Postavka problema}
+Zadatak je da se na bezbedan način izračuna verovatnoća genetskih bolesti kroz uparivanje skupa biomarkera sa enkriptovanim genomima koji se čuvaju u javnom "oblaku" (engl. cloud). Zahtev je da ceo proces uparivanja bude izvršen korišćenjem homomorfne enkripcije tako da se nikakve informacije o bazi i upitu ne otkriju serveru prilikom izračunavanja.\\
+Pretpostavimo da klijent ima VCF fajl (engl. Variation Call Format), koji sadrži informacije o genotipu, kao što su broj hromozoma i pozicija u genomu. Klijent enkriptuje informacije koristeći homomorfnu enkripciju i server računa tačno poklapanje nad enkriptovanim podacima. Ishod je prisustvo/odsustvo specifičnih biomarkera. Na kraju, klijent dekriptuje rezultat uz pomoć tajnog ključa homomorfne enkripcije.
+
+\section{Pretraga i izvlačenje podataka iz baze uz očuvanje privatnosti}
 
 \section{Zaključak}
 \label{sec:zakljucak}
