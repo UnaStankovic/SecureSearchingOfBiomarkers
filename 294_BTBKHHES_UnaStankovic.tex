@@ -30,7 +30,7 @@
 \date{16.~maj 2017.}
 \maketitle
 
-\abstract{Sa sve bržim razvojem tehnologija za sekvenciranje genoma, raste i potreba da se očuva bezbednost podataka, posebno jer se oni, sve češće, čuvaju u oblaku i odatle koriste za istraživanje. U radu će biti predstavljen efikasan način da se bezbedno pretraži pozicija koja odgovara podacima iz upita i izvuku neke informacije sa te pozicije. Nakon dekriptovanja, postoji samo mala kolicina poređenja sa informacijama iz upita koja se vrši nad običnim tekstom. Ovaj metod će biti primenjen da se nađe skup biomarkera u enkriptovanim genomima.}
+\abstract{Sa sve bržim razvojem tehnologija za sekvenciranje genoma, raste i potreba da se očuva bezbednost podataka, posebno jer se oni, sve češće, čuvaju u oblaku i odatle koriste za istraživanje. U radu će biti predstavljen efikasan način da se bezbedno pretraži pozicija koja odgovara podacima iz upita i izvuku neke informacije sa te pozicije. Nakon dekriptovanja, postoji samo mala kolicina poređenja sa informacijama iz upita koja se vrši nad običnim tekstom. Ovaj metod će biti primenjen da se nađe skup biomarkera u enkriptovanim genomima. Rad predstavlja sažetak rada pod istim naslovom koji se nalazi na http://eprint.iacr.org/2017/294.pdf.}
 
 \tableofcontents
 
@@ -64,7 +64,7 @@ VCF fajl sadrži više linija sa informacijama o genotipu, gde se svaka od njih 
 Predstavićemo hromozome pola, X i Y, sa 0 i 23, a potom definisati funkciju enkodiranja sa $\epsilon$: $\mathbb{Z}$ $\times$ $\mathbb{Z}$ $\rightarrow$ $\mathbb{Z}$ sa $$(ch, pos) \rightarrow \textit{d} = ch + 24  pos$$
 Sada treba predstaviti enkodiranje za SNP. Postavićemo $n_SNP$ za maksimalni broj alela za vršenje poređenja između genoma upita i korisničkog genoma. Svaki od SNP-ova je predstavljen sa dva bita tako da 
 $$A \rightarrow 00, T \rightarrow 01, G \rightarrow 10, C \rightarrow 11$$
-a potom su ti bitovi konkatenirani. Potom stavljamo bit 1 na početak stringa sa leve strane da označimo početnu poziciju. I na kraju popunjavamo string dužine $\textit{l}_SNP$ = 2$n_SNP$ + 1 i konvertujemo dobijeno u ceo broj, označen sa $\alpha_i$. Ako se desi da je neki nukleotid nepoznat u datom delu, onda takav string enkodiramo nulama. Na primer: $'$GC$'$ je enkodiran binarno kao 11011, što je ceo broj 27.
+a potom su ti bitovi konkatenirani. Potom stavljamo bit 1 na početak stringa sa leve strane da označimo početnu poziciju. I na kraju popunjavamo string dužine $\textit{l}_{SNP}$ = 2$n_{SNP}$ + 1 i konvertujemo dobijeno u ceo broj, označen sa $\alpha_i$. Ako se desi da je neki nukleotid nepoznat u datom delu, onda takav string enkodiramo nulama. Na primer: $'$GC$'$ je enkodiran binarno kao 11011, što je ceo broj 27.
 \subsubsection{Enkriptovanje informacija o genomu}
 Fajl baze podataka je enkodiran kao skup parova ($d_i$, $\alpha_i$) za \textit{i} = 1,...,\textit{n}, tako da je $d_i$ = $\epsilon$($\ch_i$,$pos_i$), a $\alpha_i$ je enkodirani ceo broj koji predstavlja \textit{i}-ti SNP niz alela. Tada posmatramo enkodiranje $d_i$ i $\alpha_i$ kao oznaku podataka i vrednost atributa. Korisnik podataka konstruiše polinom $DB(X) = \sum_k c_k X^k$ takav da 
 	$$c_k =\left\{
@@ -78,6 +78,7 @@ Korisnik enkriptuje polinom sa RLWE šemom za enkripciju sa javnim ključem.
 RLWE (engl. Ring Learning With Errors) pretpostavka je da je je nemoguće razlikovati naredne dve raspodele. Prva se sastoji iz parova ($a_i$, $u_i$) gde se $a_i$ i $u_i$ izvlače na slučajan način iz prostora šifrovanog teksta $R_Q$. Druga raspodela se sastoji iz parova ($a_i$, $b_i$) = ($a_i$, $a_i$\textbf{s} + $e_i$), gde je $a_i$ slučajno odabrano iz $R_Q$, a \textbf{s}, $e_i$ su izvučeni iz raspodele greške $\chi$, gde ono predstavlja raspodelu buke u prostoru \textit{R}.
 \section{Zaključak}
 \label{sec:zakljucak}
+U radu je idejno predstavljan način da pomoću homomorfne enkripcije izvršimo operacije na podacima uz očuvanje privatnosti, odnosno, predstavljeni su metodi za enkodiranje i enkripciju informacija o genomu, kao i metod za bezbednu pretragu i izvlačenje podataka. Za više detalja i dodatnu literaturu za ovu temu posetite: http://eprint.iacr.org/2017/294.pdf.
 
 
 \addcontentsline{toc}{section}{Literatura}
