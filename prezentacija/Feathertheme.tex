@@ -126,7 +126,7 @@
 %-------------------------------------------------------
 \section{Postavka problema}
 %-------------------------------------------------------
-\begin{frame}{Zadatak}
+\begin{frame}{Postavka problema}{Zadatak}
 %-------------------------------------------------------
 \begin{block}{}
 	Zadatak je da se na bezbedan način izračuna verovatnoća genetskih
@@ -144,7 +144,7 @@ se čuvaju u javnom "oblaku"(engl. cloud).
  \end{figure}
 \end{frame}
 
-
+\section{Postupak}
 \begin{frame}{Postupak}
 %-------------------------------------------------------
 \begin{block}{Uslovi}
@@ -177,6 +177,23 @@ se čuvaju u javnom "oblaku"(engl. cloud).
 \end{itemize}
 \end{block}
 
+\end{frame}
+
+\subsection{Metod za bezbednu pretragu i izvlačenje podataka}
+\begin{frame}{Metod za bezbednu pretragu i izvlačenje podataka}
+\begin{block}{Metod za enkodiranje baze}
+	\begin{itemize}
+		\item pogodan za efikasno izračunavanje jednakosti i izvlačenje podataka
+		\item $$DB(X) = \sum_{i} \alpha_i X^{d_i} \in \mathbb{Z}$$
+		\item Postupak 
+		\begin{enumerate}
+			\item korisnik enkriptuje polinom sa javnim ključem
+			\item šifrovani tekst se čuva na serveru
+			\item u fazi ispitivanja upita sa nazivom d, korisnik enkriptuje $X^{-d}$ sa simetričnom enkripcijom
+			\item šifrovani tekst šalje ka serveru.
+		\end{enumerate}
+	\end{itemize}
+\end{block}
 \end{frame}
      
 
